@@ -30,7 +30,7 @@ http://localhost:8000/ldap/
         "/ldap/search/:name/:base/:scope/:filter/:atts"
     ]
 
-##### get a list of configured LDAP servers 
+##### get a list of configured LDAP servers
 
 http://localhost:8000/ldap/search/
 
@@ -38,7 +38,7 @@ http://localhost:8000/ldap/search/
         "/ldap/search/somename"
     ]
 
-##### get the default DN of a configured LDAP servers 
+##### get the default DN of one configured LDAP server
 
 http://localhost:8000/ldap/search/somename
 
