@@ -1,0 +1,7 @@
+{
+    "port": 8000,
+    "root": "/ldap",
+    "servers": {
+       "example": "ldaps://uid=connuser,o=example,dc=org:pa$$w0rd@ldap.example.org:636/dc=org"
+    }
+}
