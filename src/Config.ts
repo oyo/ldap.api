@@ -1,5 +1,4 @@
 import { readFileSync } from 'fs'
-import Pattern from './Pattern'
 
 const defaultConfigFile = 'config.json'
 

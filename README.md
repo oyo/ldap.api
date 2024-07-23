@@ -4,7 +4,8 @@ A minimalistic REST API to query LDAP servers.
 
 ### run
 
-First configure the API in `config.json`.
+First configure the API in
+[`config.json`](https://github.com/oyo/ldap.api/blob/main/config.json).
 Create a connection string entry for each LDAP server you like to query under "servers".
 The syntax is
 
@@ -14,11 +15,11 @@ Save the file and run
 
     yarn start
 
-Then open the API root your browser - you should see a list of the available endpoints:
+Then open the API root in your browser - you should see a list of the available endpoints:
 
 ##### get a list of available endpoints
 
-http://localhost:8000/ldap/
+http://localhost:8001/ldap/
 
     [
         "/ldap/",
@@ -32,7 +33,7 @@ http://localhost:8000/ldap/
 
 ##### get a list of configured LDAP servers
 
-http://localhost:8000/ldap/search/
+http://localhost:8001/ldap/search/
 
     [
         "/ldap/search/somename"
@@ -40,7 +41,7 @@ http://localhost:8000/ldap/search/
 
 ##### get the default DN of one configured LDAP server
 
-http://localhost:8000/ldap/search/somename
+http://localhost:8001/ldap/search/somename
 
     {
         "params": {
@@ -66,7 +67,7 @@ http://localhost:8000/ldap/search/somename
 
 ##### perform a subtree search starting from specified base with filter sn=Doe and return attributes mail and phone number
 
-http://localhost:8000/ldap/search/somename/o=asia,dc=example,dc=org/sub/sn=Doe/mail,telephoneNumber
+http://localhost:8001/ldap/search/somename/o=asia,dc=example,dc=org/sub/sn=Doe/mail,telephoneNumber
 
     {
         "params": {
@@ -90,7 +91,7 @@ http://localhost:8000/ldap/search/somename/o=asia,dc=example,dc=org/sub/sn=Doe/m
 
 ##### retrieve all attributes of a specified record
 
-http://localhost:8000/ldap/search/somename/cn=John+Doe,ou=people,o=asia,dc=example,dc=org/base/_/_
+http://localhost:8001/ldap/search/somename/cn=John+Doe,ou=people,o=asia,dc=example,dc=org/base/_/_/
 
     {
         "params": {
