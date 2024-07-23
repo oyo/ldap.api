@@ -113,3 +113,5 @@ http://localhost:8001/ldap/search/somename/cn=John+Doe,ou=people,o=asia,dc=examp
         ]
     }
 
+For a simple UI to browse the directory you can use
+ [`ldap.ui`](https://github.com/oyo/ldap.ui)
