@@ -1,6 +1,6 @@
 {
     "port": 8001,
-    "root": "/ldap",
+    "root": "/ldap/api",
     "servers": {
        "some_openldap": "ldaps://uid=connuser,ou=people,o=example,dc=org:password@openldap.example.org:636/dc=eample,dc=org",
        "some_activedirectory": "ldaps://DOMAIN\\connuser:password@activedirectory.example.org:3269/dc=org"

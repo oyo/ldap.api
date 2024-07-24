@@ -2,6 +2,11 @@
 
 A minimalistic REST API to query LDAP servers.
 
+There is also a web UI available in a separate repository:
+
+- [`ldap.api`](https://github.com/oyo/ldap.api)
+- [`ldap.ui`](https://github.com/oyo/ldap.ui)
+
 ### run
 
 First configure the API in
@@ -13,35 +18,36 @@ The syntax is
 
 Save the file and run
 
-    yarn start
+    yarn start [<my-config.json>]
 
+The config file argument is optional in case you choose to save the config as a different file.
 Then open the API root in your browser - you should see a list of the available endpoints:
 
-##### get a list of available endpoints
+##### Get a list of available endpoints
 
-http://localhost:8001/ldap/
-
-    [
-        "/ldap/",
-        "/ldap/search",
-        "/ldap/search/:name",
-        "/ldap/search/:name/:base",
-        "/ldap/search/:name/:base/:scope",
-        "/ldap/search/:name/:base/:scope/:filter",
-        "/ldap/search/:name/:base/:scope/:filter/:atts"
-    ]
-
-##### get a list of configured LDAP servers
-
-http://localhost:8001/ldap/search/
+http://localhost:8001/ldap/api/
 
     [
-        "/ldap/search/somename"
+        "/ldap/api/",
+        "/ldap/api/search",
+        "/ldap/api/search/:name",
+        "/ldap/api/search/:name/:base",
+        "/ldap/api/search/:name/:base/:scope",
+        "/ldap/api/search/:name/:base/:scope/:filter",
+        "/ldap/api/search/:name/:base/:scope/:filter/:atts"
     ]
 
-##### get the default DN of one configured LDAP server
+##### Get a list of configured LDAP servers
 
-http://localhost:8001/ldap/search/somename
+http://localhost:8001/ldap/api/search/
+
+    [
+        "/ldap/api/search/somename"
+    ]
+
+##### Get the default DN of one configured LDAP server
+
+http://localhost:8001/ldap/api/search/somename
 
     {
         "params": {
@@ -65,9 +71,9 @@ http://localhost:8001/ldap/search/somename
         ]
     }
 
-##### perform a subtree search starting from specified base with filter sn=Doe and return attributes mail and phone number
+##### Perform a subtree search starting from specified base with filter sn=Doe and return attributes mail and phone number
 
-http://localhost:8001/ldap/search/somename/o=asia,dc=example,dc=org/sub/sn=Doe/mail,telephoneNumber
+http://localhost:8001/ldap/api/search/somename/o=asia,dc=example,dc=org/sub/sn=Doe/mail,telephoneNumber
 
     {
         "params": {
@@ -89,9 +95,9 @@ http://localhost:8001/ldap/search/somename/o=asia,dc=example,dc=org/sub/sn=Doe/m
         ]
     }
 
-##### retrieve all attributes of a specified record
+##### Retrieve all attributes of a specified record
 
-http://localhost:8001/ldap/search/somename/cn=John+Doe,ou=people,o=asia,dc=example,dc=org/base/_/_/
+http://localhost:8001/ldap/api/search/somename/cn=John+Doe,ou=people,o=asia,dc=example,dc=org/base/_/_/
 
     {
         "params": {
@@ -112,6 +118,3 @@ http://localhost:8001/ldap/search/somename/cn=John+Doe,ou=people,o=asia,dc=examp
             }
         ]
     }
-
-For a simple UI to browse the directory you can use
- [`ldap.ui`](https://github.com/oyo/ldap.ui)
